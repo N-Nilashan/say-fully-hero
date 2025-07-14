@@ -1,26 +1,32 @@
+@font-face{
+font-family:stardos;
+src: url("../public/fonts/StardosStencil-Regular.ttf");
+}
+
+@font-face{
+font-family:questrial-;
+src: url("../public/fonts/Questrial-Regular.ttf");
+}
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme{
+--font-stardos: stardos,'sans-serif';
+--font-Questrial: Questrial-,'sans-serif';
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes pulse {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.8; }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-20px) translateX(10px); }
+  100% { transform: translateY(0) translateX(0); }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes float-delay {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(10px) translateX(-15px); }
+  100% { transform: translateY(0) translateX(0); }
 }
+.animate-float { animation: float 8s ease-in-out infinite; }
+.animate-float-delay { animation: float-delay 10s ease-in-out infinite; }
